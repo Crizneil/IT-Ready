@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IT READY by crizneil</title>
+    <meta name="description" content="A communication and troubleshooting assistant for IT freelancers.">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎧</text></svg>">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="brand" style="font-size: 1.1rem;">
+            <i class="ph-fill ph-headset"></i> IT READY <span style="font-weight: 400; font-size: 0.9rem; color: var(--text-secondary);">by crizneil</span>
+        </div>
+        <div class="nav-section">
+            <div class="nav-label desktop-only" id="cat-label">Categories</div>
+            <div id="categories-nav">
+                <!-- Injected via app.js -->
+            </div>
+            
+            <div class="nav-label desktop-only" style="margin-top: 24px;">Tools & More</div>
+            <a class="nav-item" data-view="favorites">
+                <i class="ph ph-star"></i> <span class="desktop-only">Favorites</span>
+            </a>
+            <a class="nav-item" data-view="custom">
+                <i class="ph ph-list-plus"></i> <span class="desktop-only">Personal</span>
+            </a>
+            <a class="nav-item" data-view="tools">
+                <i class="ph ph-wrench"></i> <span class="desktop-only">Support Tools</span>
+            </a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="mobile-search" style="display: none;" id="mobile-search-div">
+            <div class="search-container" style="display: block; width: 100%; max-width: none;">
+                <input type="text" id="search-input-mobile" placeholder="Search IT terms..." autocomplete="off">
+            </div>
+        </div>
+        
+        <header>
+            <div class="header-title" id="current-view-title">General Client Communication</div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="search-container" id="desktop-search-div">
+                    <input type="text" id="search-input-desktop" placeholder="Search phrases, commands..." autocomplete="off">
+                </div>
+                <button class="btn-icon" id="theme-toggle" title="Toggle Theme" style="background: var(--card-bg); border: 1px solid var(--border); width: 44px; height: 44px; border-radius: 30px; box-shadow: var(--shadow);">
+                    <i id="theme-icon" class="ph ph-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div id="view-container">
+            <div id="content-grid" class="grid-list">
+                <!-- Phrase Cards Injected Here -->
+            </div>
+            <div id="tools-container" style="display: none;">
+                <!-- Tools Injected Here -->
+            </div>
+        </div>
+        
+        <button class="fab" id="dynamic-fab-btn" title="Options">
+            <i class="ph ph-plus" id="fab-icon"></i>
+        </button>
+    </main>
+
+    <!-- Modals -->
+    <!-- Checklist Modal -->
+    <div class="modal-overlay" id="checklist-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="checklist-title">Troubleshooting Checklist</h2>
+                <button class="btn-icon" id="close-checklist-btn"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body" id="checklist-content">
+                <!-- Injected via app.js -->
+            </div>
+            <div style="margin-top: 24px;">
+                <button class="btn btn-secondary w-100" id="done-checklist-btn" style="width: 100%; justify-content: center;">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- Add Phrase Modal -->
+    <div class="modal-overlay" id="form-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="form-title">Add Custom Phrase</h2>
+                <button class="btn-icon" id="close-form-btn"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="phrase-id">
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <select id="phrase-category" class="form-control">
+                        <!-- Injected via app.js -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phrase Text</label>
+                    <textarea id="phrase-text" class="form-control" placeholder="E.g., Please reboot your machine..."></textarea>
+                </div>
+                <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px;">
+                    <button class="btn btn-secondary" id="cancel-form-btn">Cancel</button>
+                    <button class="btn btn-primary" id="save-form-btn">Save Phrase</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Read Mode Modal -->
+    <div class="modal-overlay" id="read-modal">
+        <div class="modal" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px;">
+            <button class="btn-icon" id="close-read-btn" style="position: absolute; top: 16px; right: 16px;"><i class="ph ph-x"></i></button>
+            <div class="read-mode-text" id="read-mode-content">
+                Can you please describe the problem you are experiencing?
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">Copied to clipboard!</div>
+
+    <style>
+        /* Mobile specific style tweaks inside HTML to ensure specificity */
+        @media (max-width: 768px) {
+            .desktop-only { display: none !important; }
+            #mobile-search-div { display: block !important; }
+            #desktop-search-div { display: none !important; }
+        }
+    </style>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(reg => {
+                    console.log('SW Registered');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
