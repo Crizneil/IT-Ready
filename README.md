@@ -2,7 +2,7 @@
 
 **IT READY** is your personal assistant for IT troubleshooting and client communication. Whether you're at your desk or on the go, this app helps you find the right words and technical steps to solve problems quickly.
 
-## 📱 How to Use IT READY
+##  How to Use IT READY
 
 - **Find Phrases Fast**: Use the search bar at the top to find troubleshooting steps or client responses instantly.
 - **Categories**: Browse the sidebar to find specific topics like "Windows Support", "Networking", or "Client Communication".
@@ -12,7 +12,7 @@
 
 ---
 
-## 🚀 Installation Guide
+## Installation Guide
 
 You can use IT READY in your web browser, but for the best experience, you should install it on your phone or computer.
 
@@ -33,10 +33,10 @@ You can use IT READY in your web browser, but for the best experience, you shoul
 
 ---
 
-## ✨ Why Use IT READY?
+##  Why Use IT READY?
 - **Works Offline**: Once installed, you can use the app even without internet.
 - **Professional**: Built to help you communicate more professionally with your clients.
 - **Simple & Fast**: No clutter, just the tools you need to get the job done.
 
 ---
-*Created with ❤️ by crizneil*
+*Dev by crizneil*
