@@ -16,7 +16,7 @@
 
 ---
 
-## 🚀 Installation Guide
+## Installation Guide
 
 You can use IT READY in your web browser at [crizneil.github.io/IT-Ready/](https://crizneil.github.io/IT-Ready/), but for the best experience, you should install it on your phone or computer.
 
