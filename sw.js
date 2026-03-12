@@ -2,12 +2,12 @@ const CACHE_NAME = 'it-ready-v4';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css',
-  './app.js',
-  './data.js',
+  './assets/css/styles.css',
+  './assets/js/app.js',
+  './assets/js/data.js',
   './manifest.json',
-  './icon-192.png',
-  './icon-512.png',
+  './assets/images/icon-192.png',
+  './assets/images/icon-512.png',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
 ];
 
