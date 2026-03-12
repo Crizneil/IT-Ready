@@ -36,20 +36,15 @@ function init() {
 
 // --- Setup Event Listeners ---
 function setupEventListeners() {
-    // Nav Navigation (Categories)
-    categoriesNav.addEventListener('click', (e) => {
+    // Nav Navigation (Unified)
+    const handleNavClick = (e) => {
         const item = e.target.closest('.nav-item');
         if (item) {
             setView(item.dataset.view);
         }
-    });
-
-    // Nav Navigation (Tools & More)
-    navItems.forEach(item => {
-        if (!item.id && item.dataset.view) {
-            item.addEventListener('click', () => setView(item.dataset.view));
-        }
-    });
+    };
+    categoriesNav.addEventListener('click', handleNavClick);
+    document.getElementById('extra-nav').addEventListener('click', handleNavClick);
 
     // Search
     searchInputs.forEach(input => {

@@ -39,13 +39,16 @@
 html, body {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    touch-action: none; /* Disable all browser-level zoom/gestures */
     -webkit-text-size-adjust: 100%;
     position: fixed;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
 }
 
 body {
@@ -523,18 +526,18 @@ textarea.form-control {
     
     #sidebar {
         width: 100%;
-        height: 75px; /* Slightly taller for safer touch zones */
+        height: 75px;
         min-height: 75px;
         flex-direction: row;
         border-right: none;
         border-top: 1px solid var(--border);
         padding: 0;
-        justify-content: space-around;
-        align-items: center;
-        flex-shrink: 0; /* Prevent bottom nav from squishing */
+        background: var(--sidebar-bg);
+        z-index: 100;
+        flex-shrink: 0;
     }
     
-    .brand, .nav-label {
+    .brand {
         display: none;
     }
     
@@ -547,36 +550,50 @@ textarea.form-control {
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
-        align-items: center;
         scrollbar-width: none;
-        gap: 0; /* Items handle their own spacing */
     }
     
     .nav-section::-webkit-scrollbar {
         display: none;
     }
     
+    #categories-nav, #extra-nav {
+        display: flex;
+        flex-direction: row;
+    }
+    
     .nav-item {
         flex-direction: column;
-        gap: 0;
+        gap: 2px;
         padding: 10px 0;
         font-size: 0.65rem;
-        flex: 1;
-        min-width: 70px; /* Ensure icons aren't too squished */
+        min-width: 75px;
+        flex-shrink: 0;
         border-radius: 0;
-        background: transparent !important;
-        box-shadow: none !important;
+        align-items: center;
+        justify-content: center;
     }
     
     .nav-item i {
         font-size: 1.5rem;
-        margin-bottom: 4px;
+        color: var(--text-secondary);
+    }
+    
+    .nav-item.active {
+        background: transparent;
+        box-shadow: none;
+        color: var(--accent);
+    }
+    
+    .nav-item.active i {
+        color: var(--accent);
     }
     
     header {
-        padding: 0 16px;
         height: 60px;
+        padding: 0 16px;
         flex-shrink: 0;
+        width: 100%;
     }
     
     .header-title {
@@ -584,17 +601,17 @@ textarea.form-control {
     }
     
     #view-container {
-        padding: 16px;
+        padding: 12px;
         width: 100%;
+        max-width: 100%;
         overflow-x: hidden;
     }
 
     .fab {
         bottom: 90px;
         right: 16px;
-        width: 54px;
-        height: 54px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        width: 56px;
+        height: 56px;
     }
 }
 
